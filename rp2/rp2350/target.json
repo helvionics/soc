@@ -1,0 +1,22 @@
+{
+    "inherits": ["cortex-m33"],
+    "inheritable-only": true,
+    "build-tags": ["platformhooks", "soc.rp2350"],
+    "scheduler": "tasks",
+    "flash-1200-bps-reset": "true",
+    "flash-method": "msd",
+    "msd-volume-name": ["RP2350"],
+    "msd-firmware-name": "firmware.uf2",
+    "firmware-extensions": [".elf", ".hex", ".uf2"],
+    "binary-format": "uf2",
+    "uf2-family-id": "0xe48bff59",
+    "extra-files": ["rp2350.s", "embedded_block.s"],
+    "ldflags": [
+        "--defsym=__flash_size=2M",
+        "--defsym=__num_stacks=2"
+    ],
+    "linkerscript": "rp2350.ld",
+    "openocd-interface": "picoprobe",
+    "openocd-transport": "swd",
+    "openocd-target": "rp2350"
+}
